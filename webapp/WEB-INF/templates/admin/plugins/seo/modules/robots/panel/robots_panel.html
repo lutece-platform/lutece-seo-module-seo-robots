@@ -1,0 +1,17 @@
+<div class="row-fluid">  
+<div class="well span6">
+        <h3>Le fichier robots.txt</h3>  
+        <p>
+            Le fichier robots.txt doit être accessible à l'url suivante : ${robots_url}
+        </p>
+        <p>
+            Il s'agit d'un fichier texte destiné aux moteurs de recherche et aux robots d'indexation.  <br />
+            Il indique notamment l'ensemble des pages qui peuvent être indexées. <br />
+            Il est possible de déclarer dans ce fichier l'url d'accès au fichier sitemap.xml, pour permettre aux différents moteurs de recherche d'y accéder plus facilement, en utilisant la syntaxe suivante : 
+        </p>
+        <pre>Sitemap : ${dns}/sitemap.xml</pre>                    
+        <div class="span10">
+            <iframe src="${robots_preview}" title="Le fichier robots.txt" class="row-fluid">Le fichier robots.txt n'est pas accessible</iframe>
+        </div>
+     </div>
+</div>
