@@ -98,8 +98,6 @@ public class SEORobotsPanel extends SEOAbstractPanel implements SEOPanel
         
         model.put( MARK_ROBOTS_URL, strDNS + ROBOTS );
         model.put( MARK_DNS, strDNS );
-        // URL de test, à supprimer
-        strDNS = "http://fr.lutece.paris.fr";
         model.put( MARK_ROBOTS_PREVIEW, strDNS + ROBOTS );
         
 
