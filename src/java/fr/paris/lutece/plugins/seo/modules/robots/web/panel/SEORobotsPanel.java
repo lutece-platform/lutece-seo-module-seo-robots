@@ -75,7 +75,6 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
     /**
      * {@inheritDoc }
      */    
-    @Override
     public String getPanelContent(   )
     {
         Map<String, Object> model = new HashMap<String, Object>(  );
@@ -107,13 +106,11 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
     /**
      * {@inheritDoc }
      */
-    @Override
     public int getPanelOrder(  )
     {
         return PANEL_ORDER;
     }
 
-    @Override
     public String getPanelKey()
     {
         return PANEL_KEY;
