@@ -33,17 +33,13 @@
  */
 package fr.paris.lutece.plugins.seo.modules.robots.web.panel;
 
-import fr.paris.lutece.plugins.seo.service.SEODataKeys;
-import fr.paris.lutece.plugins.seo.web.panel.SEOAbstractPanel;
-import fr.paris.lutece.plugins.seo.web.panel.SEOPanel;
-import fr.paris.lutece.portal.service.datastore.DatastoreService;
+import fr.paris.lutece.plugins.seo.web.AbstractSEOPanel;
+import fr.paris.lutece.plugins.seo.web.SEOPanel;
 import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
-import fr.paris.lutece.portal.service.util.AppPathService;
 import fr.paris.lutece.util.html.HtmlTemplate;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
 
 
 
@@ -51,34 +47,36 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Sitemap Panel
  */
-public class SEORobotsPanel extends SEOAbstractPanel implements SEOPanel
+public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
 {
     private static final String TEMPLATE_CONTENT = "/admin/plugins/seo/modules/robots/panel/robots_panel.html";
-    private static final String PROPERTY_TITlE = "module.seo.panel.robots.title";
+    private static final String PROPERTY_TITlE = "module.seo.robots.panel.title";
     
     private static final String MARK_ROBOTS_URL = "robots_url";
     private static final String MARK_DNS = "dns";
     private static final String MARK_ROBOTS_PREVIEW = "robots_preview";    
     
     private static final String ROBOTS = "/robots.txt";    
-    private static final int ORDER = 4;    
     private static final int PORT_NUMBER_HTTP = 80;    
+
+    private static final int PANEL_ORDER = 4;    
+    private static final String PANEL_KEY = "ROBOTS";
     
 
     /**
      * {@inheritDoc }
      */
     @Override
-    public String getTitle(  )
+    public String getPanelTitle(  )
     {
-        return I18nService.getLocalizedString( PROPERTY_TITlE, getLocale(  ) );
+        return I18nService.getLocalizedString( PROPERTY_TITlE, getPanelLocale(  ) );
     }
 
     /**
      * {@inheritDoc }
      */    
     @Override
-    public String getContent(   )
+    public String getPanelContent(   )
     {
         Map<String, Object> model = new HashMap<String, Object>(  );
                 
@@ -101,7 +99,7 @@ public class SEORobotsPanel extends SEOAbstractPanel implements SEOPanel
         model.put( MARK_ROBOTS_PREVIEW, strDNS + ROBOTS );
         
 
-        HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CONTENT, getLocale(  ), model );
+        HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CONTENT, getPanelLocale(  ), model );
 
         return template.getHtml(  );
     }
@@ -110,8 +108,14 @@ public class SEORobotsPanel extends SEOAbstractPanel implements SEOPanel
      * {@inheritDoc }
      */
     @Override
-    public int getOrder(  )
+    public int getPanelOrder(  )
     {
-        return ORDER;
+        return PANEL_ORDER;
+    }
+
+    @Override
+    public String getPanelKey()
+    {
+        return PANEL_KEY;
     }
 }
