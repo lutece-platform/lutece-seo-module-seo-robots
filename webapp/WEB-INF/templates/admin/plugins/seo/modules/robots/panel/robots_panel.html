@@ -1,17 +1,14 @@
-<div class="row-fluid">  
-<div class="well span12">
-        <h3>#i18n{module.seo.robots.manage_robots.title}</h3>  
-        <p>
-            #i18n{module.seo.robots.manage_robots.access} : ${robots_url}          
-        </p>
-        <p>
-            #i18n{module.seo.robots.manage_robots.description}
-        </p>
-        <div class="span8">
-            <pre>#i18n{module.seo.robots.manage_robots.sitemap} : ${dns}/sitemap.xml</pre>                    
-        </div>
-        <div class="span10">
-            <iframe src="${robots_preview}" title="#i18n{module.seo.robots.manage_robots.titleIFrame}" class="row-fluid">#i18n{module.seo.robots.manage_robots.labelNoRobot}</iframe>
-        </div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+		<div class="box box-danger">
+			<div class="box-header">
+				<h3 class="box-title">#i18n{module.seo.robots.manage_robots.title}</h3>  
+			</div><!-- /.box-header -->
+			<div class="box-body">	
+				<p>#i18n{module.seo.robots.manage_robots.access} : <span class="label label-info">${robots_url}</span></p>
+				<p>#i18n{module.seo.robots.manage_robots.description} <span class="label label-info">#i18n{module.seo.robots.manage_robots.sitemap} : ${dns}/sitemap.xml</span></p>
+				<iframe src="${robots_preview}" title="#i18n{module.seo.robots.manage_robots.titleIFrame}" class="col-xs-12 col-sm-12 col-md-12" style="min-height:400px;">#i18n{module.seo.robots.manage_robots.labelNoRobot}</iframe>
+			</div>
+		</div>
      </div>
 </div>
