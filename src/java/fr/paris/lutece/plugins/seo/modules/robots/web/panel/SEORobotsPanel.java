@@ -38,10 +38,9 @@ import fr.paris.lutece.plugins.seo.web.SEOPanel;
 import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.util.html.HtmlTemplate;
+
 import java.util.HashMap;
 import java.util.Map;
-
-
 
 
 /**
@@ -51,17 +50,13 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
 {
     private static final String TEMPLATE_CONTENT = "/admin/plugins/seo/modules/robots/panel/robots_panel.html";
     private static final String PROPERTY_TITlE = "module.seo.robots.panel.title";
-    
     private static final String MARK_ROBOTS_URL = "robots_url";
     private static final String MARK_DNS = "dns";
-    private static final String MARK_ROBOTS_PREVIEW = "robots_preview";    
-    
-    private static final String ROBOTS = "/robots.txt";    
-    private static final int PORT_NUMBER_HTTP = 80;    
-
-    private static final int PANEL_ORDER = 4;    
+    private static final String MARK_ROBOTS_PREVIEW = "robots_preview";
+    private static final String ROBOTS = "/robots.txt";
+    private static final int PORT_NUMBER_HTTP = 80;
+    private static final int PANEL_ORDER = 4;
     private static final String PANEL_KEY = "ROBOTS";
-    
 
     /**
      * {@inheritDoc }
@@ -74,15 +69,14 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
 
     /**
      * {@inheritDoc }
-     */    
+     */
     @Override
-    public String getPanelContent(   )
+    public String getPanelContent(  )
     {
         Map<String, Object> model = new HashMap<String, Object>(  );
-                
-                        
-        String strDNS = getRequest().getScheme(  ) + "://" + getRequest().getServerName(  );
-        int nPort = getRequest().getServerPort(  );
+
+        String strDNS = getRequest(  ).getScheme(  ) + "://" + getRequest(  ).getServerName(  );
+        int nPort = getRequest(  ).getServerPort(  );
 
         if ( nPort != PORT_NUMBER_HTTP )
         {
@@ -93,11 +87,10 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
         {
             strDNS += "/";
         }
-        
+
         model.put( MARK_ROBOTS_URL, strDNS + ROBOTS );
         model.put( MARK_DNS, strDNS );
         model.put( MARK_ROBOTS_PREVIEW, strDNS + ROBOTS );
-        
 
         HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CONTENT, getPanelLocale(  ), model );
 
@@ -114,7 +107,7 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
     }
 
     @Override
-    public String getPanelKey()
+    public String getPanelKey(  )
     {
         return PANEL_KEY;
     }
