@@ -5,9 +5,9 @@
 				<h3 class="box-title">#i18n{module.seo.robots.manage_robots.title}</h3>  
 			</div><!-- /.box-header -->
 			<div class="box-body">	
-				<p>#i18n{module.seo.robots.manage_robots.access} : <span class="label label-info">${robots_url}</span></p>
-				<p>#i18n{module.seo.robots.manage_robots.description} <span class="label label-info">#i18n{module.seo.robots.manage_robots.sitemap} : ${dns}/sitemap.xml</span></p>
-				<iframe src="${robots_preview}" title="#i18n{module.seo.robots.manage_robots.titleIFrame}" class="col-xs-12 col-sm-12 col-md-12" style="min-height:400px;">#i18n{module.seo.robots.manage_robots.labelNoRobot}</iframe>
+				<p>#i18n{module.seo.robots.manage_robots.access} : <span class="label label-info">${robots_url!}</span></p>
+				<p>#i18n{module.seo.robots.manage_robots.description} <span class="label label-info">#i18n{module.seo.robots.manage_robots.sitemap} : ${dns!}/sitemap.xml</span></p>
+				<iframe src="${robots_preview!}" title="#i18n{module.seo.robots.manage_robots.titleIFrame}" class="col-xs-12 col-sm-12 col-md-12" style="min-height:400px;">#i18n{module.seo.robots.manage_robots.labelNoRobot}</iframe>
 			</div>
 		</div>
      </div>

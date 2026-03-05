@@ -39,13 +39,18 @@ import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.util.html.HtmlTemplate;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
+
 import java.util.HashMap;
 import java.util.Map;
 
 
 /**
- * Sitemap Panel
+ * Robots Panel
  */
+@ApplicationScoped
+@Named
 public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
 {
     private static final String TEMPLATE_CONTENT = "/admin/plugins/seo/modules/robots/panel/robots_panel.html";
