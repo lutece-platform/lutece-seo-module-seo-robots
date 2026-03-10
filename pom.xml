@@ -10,7 +10,7 @@
     <groupId>fr.paris.lutece.plugins</groupId>
     <artifactId>module-seo-robots</artifactId>
     <packaging>lutece-plugin</packaging>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <name>Lutece seo robots module</name>
 
     <repositories>
@@ -52,7 +52,7 @@
         <connection>scm:git:https://github.com/lutece-platform/lutece-seo-module-seo-robots.git</connection>
         <developerConnection>scm:git:https://github.com/lutece-platform/lutece-seo-module-seo-robots.git</developerConnection>
         <url>https://github.com/lutece-platform/lutece-seo-module-seo-robots.git</url>
-      <tag>HEAD</tag>
+      <tag>module-seo-robots-1.0.3</tag>
   </scm>
 
 </project>
