@@ -134,6 +134,8 @@ public class RobotsPanelRenderTest
         assertTrue( strHtml.contains( ">" + SERVER_ESCAPED + "/robots.txt</span>" ), strHtml );
         assertTrue( strHtml.contains( "<iframe src=\"" + SERVER_ESCAPED + "/robots.txt\"" ), strHtml );
         assertFalse( strHtml.contains( "<c>" ), strHtml );
+        // the panel title follows the h1 of the SEO page
+        assertTrue( strHtml.contains( "<h2 class=\"box-title\">#i18n{module.seo.robots.manage_robots.title}</h2>" ), strHtml );
     }
 
     /**
