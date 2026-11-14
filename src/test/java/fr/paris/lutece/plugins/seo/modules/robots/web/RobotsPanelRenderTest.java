@@ -56,8 +56,8 @@ import freemarker.template.TemplateMethodModelEx;
 
 /**
  * Renders the robots.txt panel with HTML auto-escaping and the back office macros (LUT-33153), as SEORobotsPanel builds
- * its model: the URLs are written as text and the preview URL goes through safeUrl. The core macros are read from the
- * exploded webapp (lutece:exploded).
+ * its model: the robots.txt and sitemap URLs are written as text and the preview URL goes through safeUrl. The core
+ * macros are read from the exploded webapp (lutece:exploded).
  */
 public class RobotsPanelRenderTest
 {
@@ -116,6 +116,7 @@ public class RobotsPanelRenderTest
         model.put( "robots_url", strServer + "/robots.txt" );
         model.put( "dns", strServer );
         model.put( "robots_preview", strServer + "/robots.txt" );
+        model.put( "sitemap_url", strServer + "/site/sitemap-seo.xml" );
 
         return model;
     }
@@ -133,6 +134,7 @@ public class RobotsPanelRenderTest
 
         assertTrue( strHtml.contains( ">" + SERVER_ESCAPED + "/robots.txt</span>" ), strHtml );
         assertTrue( strHtml.contains( "<iframe src=\"" + SERVER_ESCAPED + "/robots.txt\"" ), strHtml );
+        assertTrue( strHtml.contains( " : " + SERVER_ESCAPED + "/site/sitemap-seo.xml</span>" ), strHtml );
         assertFalse( strHtml.contains( "<c>" ), strHtml );
         // the panel title follows the h1 of the SEO page
         assertTrue( strHtml.contains( "<h2 class=\"box-title\">#i18n{module.seo.robots.manage_robots.title}</h2>" ), strHtml );

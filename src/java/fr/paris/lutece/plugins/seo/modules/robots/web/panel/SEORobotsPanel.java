@@ -37,6 +37,7 @@ import fr.paris.lutece.plugins.seo.web.AbstractSEOPanel;
 import fr.paris.lutece.plugins.seo.web.SEOPanel;
 import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
+import fr.paris.lutece.portal.service.util.AppPathService;
 import fr.paris.lutece.util.html.HtmlTemplate;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -58,7 +59,10 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
     private static final String MARK_ROBOTS_URL = "robots_url";
     private static final String MARK_DNS = "dns";
     private static final String MARK_ROBOTS_PREVIEW = "robots_preview";
+    private static final String MARK_SITEMAP_URL = "sitemap_url";
     private static final String ROBOTS = "/robots.txt";
+    // the sitemap of plugin-seo, served in the webapp by its SitemapServlet through a rewrite rule
+    private static final String SITEMAP = "sitemap-seo.xml";
     private static final int PORT_NUMBER_HTTP = 80;
     private static final int PANEL_ORDER = 4;
     private static final String PANEL_KEY = "ROBOTS";
@@ -96,6 +100,7 @@ public class SEORobotsPanel extends AbstractSEOPanel implements SEOPanel
         model.put( MARK_ROBOTS_URL, strDNS + ROBOTS );
         model.put( MARK_DNS, strDNS );
         model.put( MARK_ROBOTS_PREVIEW, strDNS + ROBOTS );
+        model.put( MARK_SITEMAP_URL, AppPathService.getBaseUrl( getRequest(  ) ) + SITEMAP );
 
         HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CONTENT, getPanelLocale(  ), model );
 
